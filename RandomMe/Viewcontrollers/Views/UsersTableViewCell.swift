@@ -13,6 +13,7 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +21,24 @@ class UsersTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    func getUserDeatils(){
+        NetworkManager.shared.getUserDeatils { (user,error) in
+            if let userDetails = user {
+                DispatchQueue.main.async {
+                   self.setUserDetails(userDeatails: userDetails)
+                }
+            }
+            else{
+                print(error ?? "")
+            }
+            
+        }
+    }
+   fileprivate func setUserDetails(userDeatails: User) {
+        self.userNameLabel.text = userDeatails.results.first?.fullname
+        self.userEmailLabel.text = userDeatails.results.first?.email
+        if let picture = userDeatails.results.first?.userPic{
+            self.userImageView.downloadImageFrom(link: picture, contentMode: .scaleAspectFit)
+        }
+    }
 }
