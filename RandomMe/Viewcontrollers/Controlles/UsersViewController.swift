@@ -23,7 +23,7 @@ class UsersViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    self.getUsersDeatils(maxUsers: Constants.maxNumberOfUsersToDispaly)
+   self.getUsersDeatils(maxUsers: Constants.maxNumberOfUsersToDispaly)
     }
     //MARK: - UsersTableview Configuratiom
     func configureUserTableView() {
@@ -57,7 +57,7 @@ extension UsersViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.usersTableViewCell, for: indexPath) as! UsersTableViewCell
-        cell.getUserDeatils()
+        cell.setUserDetails(userDeatails: self.users[indexPath.row])
         return cell
     }
 }

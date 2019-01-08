@@ -34,11 +34,11 @@ class UsersTableViewCell: UITableViewCell {
 //
 //        }
 //    }
-//   fileprivate func setUserDetails(userDeatails: User) {
-//        self.userNameLabel.text = userDeatails.results.first?.fullname
-//        self.userEmailLabel.text = userDeatails.results.first?.email
-//        if let picture = userDeatails.results.first?.userPic{
-//            self.userImageView.downloadImageFrom(link: picture, contentMode: .scaleAspectFit)
-//        }
-//    }
+    func setUserDetails(userDeatails: User) {
+        self.userNameLabel.text = userDeatails.results.first?.fullname
+        self.userEmailLabel.text = userDeatails.results.first?.email
+        if let picture = userDeatails.results.first?.userPic{
+            self.userImageView.downloadImageFrom(link: picture, contentMode: .scaleAspectFit)
+        }
+    }
 }
