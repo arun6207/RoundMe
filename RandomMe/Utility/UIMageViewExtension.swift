@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 extension UIImageView {
+    //Lazyloading for UIImageview
     func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
         URLSession.shared.dataTask( with: URL(string:link)! as URL, completionHandler: {
             (data, response, error) -> Void in
