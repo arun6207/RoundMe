@@ -16,4 +16,4 @@ RoundMe for TribalScale
 - The project is done using MVC with some exceptions where network layer calls are directly called in viewcontrollers without
   any dataHandlers
  ##### Constraints
-- It's not possible to debug using devices higher than iOS 12.1 (max version Xcode 7.3.1 supports)
+- It's not possible to debug using devices higher than iOS 12.1 (max version Xcode 10.1 supports)
